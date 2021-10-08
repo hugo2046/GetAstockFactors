@@ -3,15 +3,30 @@
 获取经典的多因子模型数据
 数据来源：https://www.factorwar.com/data/factor-models/
 
+**使用说明**
+
+```
+from GetAstockFactors import Get_FactorWar_Data
+
+# 获取CAPM模型
+gfd = Get_FactorWar_Data('CAPM模型')
+# 获取经典算法 频率使用日频
+capm_daily_df = gfd.get_model_data('经典模型','daily')
+# 获取极简算法 频率使用月频
+capm_monthly_df = gfd.get_model_data('极简算法','monthly')
+```
+
 **能过获取一下模型：**
-1. Fama-French三因子模型
-2. Carhart四因子模型
-3. French五因子模型,Novy-Marx四因子模型
-4. Hou-Xue-Zhang四因子模型
-5. Stambaugh-Yuan四因子模型
-6. Daniel-Hirshleifer-Sun三因子模型
-7. BetaPlusA股混合四因子模型
-8. 全部多因子模型basisportfolios月均收益率
+
+1. CAPM模型
+2. Fama-French三因子模型
+3. Carhart四因子模型
+4. French五因子模型,Novy-Marx四因子模型
+5. Hou-Xue-Zhang四因子模型
+6. Stambaugh-Yuan四因子模型
+7. Daniel-Hirshleifer-Sun三因子模型
+8. BetaPlusA股混合四因子模型
+9. 全部多因子模型basisportfolios月均收益率
 
 **数据说明：**
 1. 如无特殊说明，多因子模型中因子收益率的起始日期为：1995 年 1 月 1 日。
@@ -42,5 +57,7 @@
 
 在针对 A 股的实证研究中，本文档提供经典版本和极简版本两个多因子模型版本。经典版本又称为学术界版本，它严格按照关于多因子模型的学术论文中描述的方法选择因子变量，构建因子投资组合，计算因子收益率。极简版本是在经典版本的基础上，针对 A 股市场特点而开发的简化版多因子模型，一边更好的适应 A 股市场。经典版本和极简版本的主要差异包括：（1）经典版本严格遵循学术界惯例，因此因子投资组合每年再平衡；极简版本则按照业界惯例，因此因子投资组合每月再平衡，从而更快地利用最新的因子变量取值。（2）经典版本在构建因子投资组合时，往往采用市值和目标变量的双重排序；但在极简版本中，将使用因子变量单变量排序构建因子投资组合。
 
+# 详细算法说明
 
+[因子模型构建细节](https://www.factorwar.com/wp-content/uploads/2021/09/BetaPlus_FactorModels_MethodologyNote_20210904.pdf)
   
