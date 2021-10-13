@@ -142,15 +142,15 @@ class Get_FactorWar_Data(object):
         return dic
 
 
-if __name__ == '__main__':
+# if __name__ == '__main__':
 
-    gfd = Get_FactorWar_Data()
+#     gfd = Get_FactorWar_Data()
 
-    ff_model_data: pd.DataFrame = gfd.get_model_data(
-        'Fama-French三因子模型', '经典算法', 'monthly')
+#     ff_model_data: pd.DataFrame = gfd.get_model_data(
+#         'Fama-French三因子模型', '经典算法', 'monthly')
 
-    print(ff_model_data.tail())
+#     print(ff_model_data.tail())
 
-    betaplus1000_index: pd.DataFrame = gfd.get_betaplus1000()
+#     betaplus1000_index: pd.DataFrame = gfd.get_betaplus1000()
 
-    print(betaplus1000_index.tail())
+#     print(betaplus1000_index.tail())
