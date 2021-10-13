@@ -9,14 +9,19 @@
 from GetAstockFactors import Get_FactorWar_Data
 
 # 获取CAPM模型
-gfd = Get_FactorWar_Data('CAPM模型')
+gfd = Get_FactorWar_Data()
+
 # 获取经典算法 频率使用日频
-capm_daily_df = gfd.get_model_data('经典模型','daily')
+capm_daily_df: pd.DataFrame = gfd.get_model_data('CAPM模型','经典模型','daily')
+
 # 获取极简算法 频率使用月频
-capm_monthly_df = gfd.get_model_data('极简算法','monthly')
+capm_monthly_df: pd.DataFrame = gfd.get_model_data('CAPM模型','极简算法','monthly')
+
+# 获取BetaPlus1000指数数据
+betaplus1000: pd.DataFrame = gfd.gfd.get_betaplus1000()
 ```
 
-**能过获取以下模型：**
+**使用get_model_data方法可以获取以下模型：**
 
 1. CAPM模型
 2. Fama-French三因子模型
@@ -27,6 +32,10 @@ capm_monthly_df = gfd.get_model_data('极简算法','monthly')
 7. Daniel-Hirshleifer-Sun三因子模型
 8. BetaPlusA股混合四因子模型
 9. 全部多因子模型basisportfolios月均收益率
+
+**使用get_betaplus1000方法可以获得BetaPlus1000指数数据**
+
+BetaPlus 1000指数系列包括BetaPlus 1000基准指数和7个BetaPlus 1000因子指数，旨在反应A股市场整体以及常见风格的风险收益特征。其涵盖的因子包括价值、盈利、成长、红利、低波动、规模以及动量。具体编制方案见[算法说明](https://www.factorwar.com/wp-content/uploads/2020/08/BetaPlus_Indexes_MethodologyNote_20200813.pdf)。
 
 **数据说明：**
 1. 如无特殊说明，多因子模型中因子收益率的起始日期为：1995 年 1 月 1 日。
